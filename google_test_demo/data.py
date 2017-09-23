@@ -98,3 +98,17 @@ slot4 = {
         "food": "food!B4:B36"
     }
 }
+
+
+slot5 = {
+    "map1": {
+        "spreadsheetId_scence": "1jndZFK4gXLrwbl3AnOgjyXqKBJW2NHxk8gG_318y5kQ",
+        "rangeName_scence": "Timeline!D2:CO34",
+        "rangeName_scence2": "Timeline!D1:CO34",
+        "spreadsheetId": "17xp80h0EHBr0R2G7TpTK8IvsMLLABUza8jsw8CLvdyA",
+        "rangeName": "1-1关卡!AU4:DG33",
+        "foodName": "食物!B3:B47",
+        "foodrange": "food!E4:E25",
+        "food": "food!B4:B25"
+    }
+}
