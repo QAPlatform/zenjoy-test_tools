@@ -17,8 +17,9 @@ from oauth2client import client
 from oauth2client import tools
 from oauth2client.file import Storage
 
-dict_name = data.slot2
-#dict_name = data.slot4
+# dict_name = data.slot2
+# dict_name = data.slot4
+dict_name = data.slot5
 
 
 class check_timeline_count():
@@ -29,17 +30,25 @@ class check_timeline_count():
             service = google_get_credentials.get_service()
             result = service.spreadsheets().values().get(spreadsheetId=spreadsheetId, range=rangeName).execute()
             food_name_map4 = result.get('values', [])
-
+            # print food_name_map4
             for x in xrange(0, len(food_name_map4[0])):
                 num = 0
+                # print len(food_name_map4[0])
                 for values in food_name_map4:
-                    # print values[x]
-                    if values[x]:
-                        num = num + 1
+                    if(len(values) > x):  # 处理越界的问题
+                        try:
+                            if values[x]:
+                                num = num + 1
+                        except Exception, e:
+                            print e, len(values), x, values[x]
+                    else:
+                        pass
                 food_result.append(num)
+                # print len(values), x, num, len(food_result), values[x]
         except Exception, e:
-            raise e
-
+            # raise e
+            print e
+        # print food_result
         return (food_result)
 
     def check_sum(self, spreadsheetId, rangeName):
@@ -81,7 +90,7 @@ class check_timeline_count():
                         print ("  	desgian_count%d" % r_sum[j])
                         print("  	timeline%d" % result[j])
             else:
-                print "对比结果：两个表中配置数量不等"
+                print "Result:there are different counts in two sheet,design is %s,timeline is %s " % (len(r_sum), len(result))
 
 
 class check_timeline_food():
@@ -155,7 +164,7 @@ class check_timeline_food():
                                         pass
 
                             if check_count < 1:
-                                print ("第" + str(index + 1) + "行第" + str(level_name[col_num]) + "关的" + line_name + "设计表中不存在").decode('utf-8')
+                                print ("the " + str(index + 1) + " row and the " + str(level_name[col_num]) + " level " + line_name + " is not in design sheet").decode('utf-8')
                         else:
                             pass
 
