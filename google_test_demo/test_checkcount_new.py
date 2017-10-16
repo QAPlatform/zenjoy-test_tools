@@ -186,9 +186,9 @@ class check_timeline_food():
 
             # for index, i in enumerate(food_name):  # 建立名称和解锁等级对应关系索引
             #     dict_food[i] = foodrange_arr[index]
-            print "*************"
-            print len(foodrange_arr)
-            print len(food)
+ #           print "*************"
+#            print len(foodrange_arr)
+#            print len(food)
             for food_value in time_line_value_col:  # 按列取整张表
                 food_count = []
                 check_count = 0
@@ -209,53 +209,50 @@ class check_timeline_food():
                                             if (line_name == food[index]):
                                                 print food[index] + "不应该出现在" + food_value[0], "起始关卡应该在" + str(range_food)
 
+
 class check_timeline_upgrade():
-    
+
     def get_tragetads(self, spreadsheetId, rangeName):
-        foodid=[]
+        foodid = []
         service = google_get_credentials.get_service()
         result = service.spreadsheets().values().get(spreadsheetId=spreadsheetId, range=rangeName).execute()
-        google_value = result.get('values', [])        
+        google_value = result.get('values', [])
         for x in google_value:
-            foodid.append(x[0]) #foodid列数据转化格式
+            foodid.append(x[0])  # foodid列数据转化格式
         return foodid
 
-
     def main(self):
-        #get_foodid={}
-        print "开始检查升级traget ads"    
-        res=[]
-        newget_foodid={}
+        # get_foodid={}
+        print "开始检查升级traget ads"
+        res = []
+        newget_foodid = {}
         global dict_name
-        global newget_foodid
         for i in dict_name:
             print i + " check:"
-            get_foodid=self.get_tragetads(dict_name[i]["spreadsheetId_scence"], dict_name[i]["upgrade_id"]) #upgrade表foodid列数据
-            get_tragetads=self.get_tragetads(dict_name[i]["spreadsheetId_scence"], dict_name[i]["upgrade_tragetads"]) #upgrade表upgrade_tragetads列数据
-          
-            if len(get_foodid)!=len(get_tragetads):
-                print ("失败，id与tragetads长度不一致") #比较两个列的数据数量是否一致
+            get_foodid = self.get_tragetads(dict_name[i]["spreadsheetId_scence"], dict_name[i]["upgrade_id"])  # upgrade表foodid列数据
+            get_tragetads = self.get_tragetads(dict_name[i]["spreadsheetId_scence"], dict_name[i]["upgrade_tragetads"])  # upgrade表upgrade_tragetads列数据
+
+            if len(get_foodid) != len(get_tragetads):
+                print ("失败，id与tragetads长度不一致")  # 比较两个列的数据数量是否一致
             else:
-                
-                newget_foodid=set(get_foodid) #去重的数据
+
+                newget_foodid = set(get_foodid)  # 去重的数据
                 for a in newget_foodid:
-                    #indearr=[]
-                    res=[]
-                    for index,b in enumerate(get_foodid): #枚举foodid中的数据
-                        if a==b:
-                            #indearr.append(index)
-                            res.append(get_tragetads[index]) #去重的数据在foodid中找到对应数据的索引X在traget中的数据res
-                            #print "come on"
-                    if(len(set(res))>1): #同一id对应res数据去重后，打印不是相同的数据
-                        print("失败，tragetads中不一致的数据:",res)
-                    else:
-                        print("通过，tragetads中没有不一致的数据")
-               
-                
+                    # indearr=[]
+                    res = []
+                    for index, b in enumerate(get_foodid):  # 枚举foodid中的数据
+                        if a == b:
+                            # indearr.append(index)
+                            res.append(get_tragetads[index])  # 去重的数据在foodid中找到对应数据的索引X在traget中的数据res
+                            # print "come on"
+                    if(len(set(res)) > 1):  # 同一id对应res数据去重后，打印不是相同的数据
+                        print("失败，tragetads中不一致的数据:", res)
+
+
 if __name__ == '__main__':
 
     check_timeline_food().main()
     check_timeline_food().check_foodrange()
-    #check_timeline_food().get_name_range("1zsRwqwAcM22ilYvdyNic-ynlXbD4oZm0RmmPCLO1n-Q")
+    # check_timeline_food().get_name_range("1zsRwqwAcM22ilYvdyNic-ynlXbD4oZm0RmmPCLO1n-Q")
     check_timeline_count().main()
     check_timeline_upgrade().main()
