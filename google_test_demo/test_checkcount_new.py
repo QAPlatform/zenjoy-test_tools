@@ -207,7 +207,7 @@ class check_timeline_food():
                                         if type(line_name) != type(1):
                                             line_name = line_name.replace("(", "").replace(")", "")  # line_name为每个食物名称
                                             if (line_name == food[index]):
-                                                print food[index] + "不应该出现在" + food_value[0]
+                                                print food[index] + "不应该出现在" + food_value[0], "起始关卡应该在" + str(range_food)
 
 
 if __name__ == '__main__':

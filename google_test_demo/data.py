@@ -116,7 +116,7 @@ slot5 = {
         "rangeName_scence": "Timeline!D2:CO34",
         "rangeName_scence2": "Timeline!D1:CO34",
         "spreadsheetId": "17xp80h0EHBr0R2G7TpTK8IvsMLLABUza8jsw8CLvdyA",
-        "rangeName": "1-2关卡!BM4:ES66",
+        "rangeName": "1-2关卡!BM4:ES93",
         "foodName": "1-2厨房!B3:B17",
         "foodrange": "food!E4:E25",
         "food": "food!B4:B25"
