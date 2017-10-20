@@ -18,8 +18,8 @@ from oauth2client import tools
 from oauth2client.file import Storage
 
 # dict_name = data.slot2
-# dict_name = data.slot4
-dict_name = data.slot5
+dict_name = data.slot4
+#dict_name = data.slot5
 
 
 class check_timeline_count():
@@ -186,7 +186,7 @@ class check_timeline_food():
 
             # for index, i in enumerate(food_name):  # 建立名称和解锁等级对应关系索引
             #     dict_food[i] = foodrange_arr[index]
- #           print "*************"
+    #           print "*************"
 #            print len(foodrange_arr)
 #            print len(food)
             for food_value in time_line_value_col:  # 按列取整张表
@@ -250,68 +250,69 @@ class check_timeline_upgrade():
                     else:
                         pass
 
+
 class check_guide():
 
     def get_guidelevel(self, spreadsheetId, rangeName):
         guidelevel = []
         guidefood = []
-        food=[]
-        dic={}
+        food = []
+        dic = {}
         service = google_get_credentials.get_service()
         result = service.spreadsheets().values().get(spreadsheetId=spreadsheetId, range=rangeName).execute()
         guide_levelvalue = result.get('values', [])
 
         for x in guide_levelvalue:
-            if len(x)==15:
-                dic[x[14]]=x[0]
+            if len(x) == 15:
+                dic[x[14]] = x[0]
         print "食物id：关卡id"
         print dic
         return dic
 
     def get_guidefood(self, spreadsheetId, rangeName):
-        dic1={}
+        dic1 = {}
         service = google_get_credentials.get_service()
         result = service.spreadsheets().values().get(spreadsheetId=spreadsheetId, range=rangeName).execute()
         guide_foodvalue = result.get('values', [])
 
         for y in guide_foodvalue:
-            if len(y)==6:
-                dic1[y[0]]=y[5]
+            if len(y) == 6:
+                dic1[y[0]] = y[5]
         print "食物id：引导id"
         print dic1
         return dic1
 
     def main(self):
-        print "开始检查新手引导配置" 
+        print "开始检查新手引导配置"
         global dict_name
 
         for i in dict_name:
             print i + " check:"
-            get_levelguide=self.get_guidelevel(dict_name[i]["spreadsheetId_scence"], dict_name[i]["level_guide"])
-            get_foodguide=self.get_guidefood(dict_name[i]["spreadsheetId_scence"], dict_name[i]["foodg_uide"]) 
-            
-            if len(get_levelguide)==len(get_foodguide):
+            get_levelguide = self.get_guidelevel(dict_name[i]["spreadsheetId_scence"], dict_name[i]["level_guide"])
+            get_foodguide = self.get_guidefood(dict_name[i]["spreadsheetId_scence"], dict_name[i]["foodg_uide"])
+
+            if len(get_levelguide) == len(get_foodguide):
                 print "两个表中的食物id一致"
                 for x in get_levelguide:
-                    if get_foodguide[x]:
+                    if get_foodguide.has_key(x):
                         pass
                     else:
-                        print get_foodguide[x]
+                        print get_levelguide[x] + " have not in food sheet"
             else:
-                print "level sheet len is"+str(len(get_levelguide))
-                print "food sheet len is"+str(len(get_foodguide))
-            
+                print "level sheet len is " + str(len(get_levelguide))
+                print "food sheet len is " + str(len(get_foodguide))
+
             # if get_levelguide.=get_foodguide[0]:
             #     print "新手引导检查通过"
             # else:
             #     print x[14]
 
-                
+
 if __name__ == '__main__':
 
     check_timeline_food().main()
     check_timeline_food().check_foodrange()
-    #check_timeline_food().get_name_range("1zsRwqwAcM22ilYvdyNic-ynlXbD4oZm0RmmPCLO1n-Q")
+    # check_timeline_food().get_name_range("1zsRwqwAcM22ilYvdyNic-ynlXbD4oZm0RmmPCLO1n-Q")
     check_timeline_count().main()
     check_timeline_upgrade().main()
     check_guide().main()
