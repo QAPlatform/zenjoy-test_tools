@@ -17,9 +17,9 @@ from oauth2client import client
 from oauth2client import tools
 from oauth2client.file import Storage
 
-# dict_name = data.slot2
-dict_name = data.slot4
-#dict_name = data.slot5
+dict_name = data.slot2
+# dict_name = data.slot4
+# dict_name = data.slot5
 
 
 class check_timeline_count():
@@ -256,7 +256,7 @@ class check_timeline_upgrade():
 
 class check_guide():
 
-    def get_guidelevel(self, spreadsheetId, rangeName):
+    def get_guidelevel(self, spreadsheetId, rangeName,col_level):
         guidelevel = []
         guidefood = []
         food = []
@@ -266,23 +266,23 @@ class check_guide():
         guide_levelvalue = result.get('values', [])
 
         for x in guide_levelvalue:
-            if len(x) == 15:
-                dic[x[14]] = x[0]
-        print "食物id：关卡id"
-        print dic
+            if len(x) == int(col_level)+1:
+                dic[x[int(col_level)]] = x[0]
+        # print "食物id：关卡id"
+        # print dic
         return dic
 
-    def get_guidefood(self, spreadsheetId, rangeName):
+    def get_guidefood(self, spreadsheetId, rangeName,col_food):
         dic1 = {}
         service = google_get_credentials.get_service()
         result = service.spreadsheets().values().get(spreadsheetId=spreadsheetId, range=rangeName).execute()
         guide_foodvalue = result.get('values', [])
 
         for y in guide_foodvalue:
-            if len(y) == 6:
-                dic1[y[0]] = y[5]
-        print "食物id：引导id"
-        print dic1
+            if len(y) == int(col_food)+1:
+                dic1[y[0]] = y[int(col_food)]
+        # print "食物id：引导id"
+        # print dic1
         return dic1
 
     def main(self):
@@ -291,8 +291,8 @@ class check_guide():
 
         for i in dict_name:
             print i + " check:"
-            get_levelguide = self.get_guidelevel(dict_name[i]["spreadsheetId_scence"], dict_name[i]["level_guide"])
-            get_foodguide = self.get_guidefood(dict_name[i]["spreadsheetId_scence"], dict_name[i]["foodg_uide"])
+            get_levelguide = self.get_guidelevel(dict_name[i]["spreadsheetId_scence"], dict_name[i]["level_guide"],dict_name[i]["col_level"])
+            get_foodguide = self.get_guidefood(dict_name[i]["spreadsheetId_scence"], dict_name[i]["foodg_uide"],dict_name[i]["col_food"])
 
             if len(get_levelguide) == len(get_foodguide):
                 print "两个表中的食物id一致"
@@ -302,8 +302,19 @@ class check_guide():
                     else:
                         print get_levelguide[x] + " have not in food sheet"
             else:
-                print "level sheet len is " + str(len(get_levelguide))
-                print "food sheet len is " + str(len(get_foodguide))
+                if len(get_levelguide) > len(get_foodguide):
+                   for x in get_levelguide:
+                        if get_foodguide.has_key(x):
+                            pass
+                        else:
+                            print x + " have not in food sheet"
+                else:
+                    for x in get_foodguide:
+                        if get_levelguide.has_key(x):
+                            pass
+                        else:
+                            print x + " have not in level sheet"
+
 
             # if get_levelguide.=get_foodguide[0]:
             #     print "新手引导检查通过"
