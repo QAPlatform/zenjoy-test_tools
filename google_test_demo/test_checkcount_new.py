@@ -18,8 +18,8 @@ from oauth2client import tools
 from oauth2client.file import Storage
 
 # dict_name = data.slot2
-dict_name = data.slot4
-# dict_name = data.slot5
+# dict_name = data.slot4
+dict_name = data.slot5
 
 
 class check_timeline_count():
@@ -247,12 +247,71 @@ class check_timeline_upgrade():
                             # print "come on"
                     if(len(set(res)) > 1):  # 同一id对应res数据去重后，打印不是相同的数据
                         print("失败，tragetads中不一致的数据:", res)
+                    else:
+                        pass
 
+class check_guide():
 
+    def get_guidelevel(self, spreadsheetId, rangeName):
+        guidelevel = []
+        guidefood = []
+        food=[]
+        dic={}
+        service = google_get_credentials.get_service()
+        result = service.spreadsheets().values().get(spreadsheetId=spreadsheetId, range=rangeName).execute()
+        guide_levelvalue = result.get('values', [])
+
+        for x in guide_levelvalue:
+            if len(x)==15:
+                dic[x[14]]=x[0]
+        print "食物id：关卡id"
+        print dic
+        return dic
+
+    def get_guidefood(self, spreadsheetId, rangeName):
+        dic1={}
+        service = google_get_credentials.get_service()
+        result = service.spreadsheets().values().get(spreadsheetId=spreadsheetId, range=rangeName).execute()
+        guide_foodvalue = result.get('values', [])
+
+        for y in guide_foodvalue:
+            if len(y)==6:
+                dic1[y[0]]=y[5]
+        print "食物id：引导id"
+        print dic1
+        return dic1
+
+    def main(self):
+        print "开始检查新手引导配置" 
+        global dict_name
+
+        for i in dict_name:
+            print i + " check:"
+            get_levelguide=self.get_guidelevel(dict_name[i]["spreadsheetId_scence"], dict_name[i]["level_guide"])
+            get_foodguide=self.get_guidefood(dict_name[i]["spreadsheetId_scence"], dict_name[i]["foodg_uide"]) 
+            
+            if len(get_levelguide)==len(get_foodguide):
+                print "两个表中的食物id一致"
+                for x in get_levelguide:
+                    if get_foodguide[x]:
+                        pass
+                    else:
+                        print get_foodguide[x]
+            else:
+                print "level sheet len is"+str(len(get_levelguide))
+                print "food sheet len is"+str(len(get_foodguide))
+            
+            # if get_levelguide.=get_foodguide[0]:
+            #     print "新手引导检查通过"
+            # else:
+            #     print x[14]
+
+                
 if __name__ == '__main__':
 
     check_timeline_food().main()
     check_timeline_food().check_foodrange()
-    # check_timeline_food().get_name_range("1zsRwqwAcM22ilYvdyNic-ynlXbD4oZm0RmmPCLO1n-Q")
+    #check_timeline_food().get_name_range("1zsRwqwAcM22ilYvdyNic-ynlXbD4oZm0RmmPCLO1n-Q")
     check_timeline_count().main()
     check_timeline_upgrade().main()
+    check_guide().main()

@@ -14,7 +14,9 @@ slot2 = {
         "foodrange": "food!E4:E57",
         "food": "food!B4:B57",
         "upgrade_id": "Upgrade!B4:B93",
-        "upgrade_tragetads": "Upgrade!H4:H93"
+        "upgrade_tragetads": "Upgrade!H4:H93",
+        "level_guide":"Level!A4:O63",#slot2 slot4都是63行，只有60关
+        "foodg_uide":"Food!A4:F57"
     },
     "map3": {
         "spreadsheetId_scence": "1_zKvv9zotGnuJj0KscltwqaM_lUU_987ihbFlN8oevo",
@@ -26,7 +28,9 @@ slot2 = {
         "foodrange": "food!E4:E42",
         "food": "food!B4:B42",
         "upgrade_id": "Upgrade!B4:B90",
-        "upgrade_tragetads": "Upgrade!H4:H90"
+        "upgrade_tragetads": "Upgrade!H4:H90",
+        "level_guide":"Level!A4:O63",
+        "foodg_uide":"Food!A4:F42"
     },
     "map2": {
         "spreadsheetId_scence": "16HsFF7iy6w88lUSIUesHes6MYZYEnq4Wy7J-L8z3qTo",
@@ -38,7 +42,9 @@ slot2 = {
         "foodrange": "food!E4:E42",
         "food": "food!B4:B42",
         "upgrade_id": "Upgrade!B4:B81",
-        "upgrade_tragetads": "Upgrade!H4:H81"
+        "upgrade_tragetads": "Upgrade!H4:H81",
+        "level_guide":"Level!A4:O63",
+        "foodg_uide":"Food!A4:F42"
     },
     "map1": {
         "spreadsheetId_scence": "1JzGhU8JBgBx47IZ7DXPhb4sUZnly1t-OSqGQCNmna9E",
@@ -50,7 +56,9 @@ slot2 = {
         "foodrange": "food!E4:E36",
         "food": "food!B4:B36",
         "upgrade_id": "Upgrade!B4:B83",
-        "upgrade_tragetads": "Upgrade!H4:H83"
+        "upgrade_tragetads": "Upgrade!H4:H83",
+        "level_guide":"Level!A4:O63",
+        "foodg_uide":"Food!A4:F39"
     },
     "map5": {
         "spreadsheetId_scence": "1zsRwqwAcM22ilYvdyNic-ynlXbD4oZm0RmmPCLO1n-Q",
@@ -62,7 +70,9 @@ slot2 = {
         "foodrange": "food!E4:E40",
         "food": "food!B4:B40",
         "upgrade_id": "Upgrade!B4:B85",
-        "upgrade_tragetads": "Upgrade!H4:H85"
+        "upgrade_tragetads": "Upgrade!H4:H85",
+        "level_guide":"Level!A4:O63",
+        "foodg_uide":"Food!A4:F40"
     }
 }
 
@@ -77,7 +87,9 @@ slot4 = {
         "foodrange": "food!E4:E40",
         "food": "food!B4:B40",
         "upgrade_id": "Upgrade!B4:B85",
-        "upgrade_tragetads": "Upgrade!H4:H85"
+        "upgrade_tragetads": "Upgrade!H4:H85",
+        "level_guide":"Level!A4:O63",
+        "foodg_uide":"Food!A4:F40"
     },
     "map4": {
         "spreadsheetId_scence": "1HO9ZA93QW-jZBlhLSgF_IKwqBbIpBa1TJURQ1vaULBU",
@@ -89,7 +101,9 @@ slot4 = {
         "foodrange": "food!E4:E57",
         "food": "food!B4:B57",
         "upgrade_id": "Upgrade!B4:B92",
-        "upgrade_tragetads": "Upgrade!H4:H92"
+        "upgrade_tragetads": "Upgrade!H4:H92",
+        "level_guide":"Level!A4:O63",
+        "foodg_uide":"Food!A4:F57"
     },
     "map3": {
         "spreadsheetId_scence": "11SzQ6trYp1DK86z-ktRT0ANr76fmdPiyng5Ts_ICcHU",
@@ -101,7 +115,9 @@ slot4 = {
         "foodrange": "food!E4:E42",
         "food": "food!B4:B42",
         "upgrade_id": "Upgrade!B4:B90",
-        "upgrade_tragetads": "Upgrade!H4:H90"
+        "upgrade_tragetads": "Upgrade!H4:H90",
+        "level_guide":"Level!A4:O63",
+        "foodg_uide":"Food!A4:F42"
     },
     "map2": {
         "spreadsheetId_scence": "1n8FjPc78y6TjNmexwVZFBtMqHcGCwTwv99Khw6TLthE",
@@ -113,7 +129,9 @@ slot4 = {
         "foodrange": "food!E4:E42",
         "food": "food!B4:B42",
         "upgrade_id": "Upgrade!B4:B93",
-        "upgrade_tragetads": "Upgrade!H4:H93"
+        "upgrade_tragetads": "Upgrade!H4:H93",
+        "level_guide":"Level!A4:O63",
+        "foodg_uide":"Food!A4:F42"
     },
     "map1": {
         "spreadsheetId_scence": "1jcZfcQn823qbn3XlcuZJJOa0fkZFOXwssYzAJc_M4F8",
@@ -125,7 +143,9 @@ slot4 = {
         "foodrange": "food!E4:E36",
         "food": "food!B4:B36",
         "upgrade_id": "Upgrade!B4:B94",
-        "upgrade_tragetads": "Upgrade!H4:H94"
+        "upgrade_tragetads": "Upgrade!H4:H94",
+        "level_guide":"Level!A4:O63",
+        "foodg_uide":"Food!A4:F36"
     }
 }
 
@@ -141,7 +161,9 @@ slot5 = {
         "foodrange": "food!E4:E25",
         "food": "food!B4:B25",
         "upgrade_id": "Upgrade!B4:B30",
-        "upgrade_tragetads": "Upgrade!H4:H30"
+        "upgrade_tragetads": "Upgrade!H4:H30",
+        "level_guide":"Level!A4:O63",
+        "foodg_uide":"Food!A4:F36"
     },
     "map2": {
         "spreadsheetId_scence": "1jndZFK4gXLrwbl3AnOgjyXqKBJW2NHxk8gG_318y5kQ",
@@ -153,6 +175,8 @@ slot5 = {
         "foodrange": "food!E4:E25",
         "food": "food!B4:B25",
         "upgrade_id": "Upgrade!B4:B48",
-        "upgrade_tragetads": "Upgrade!H4:H48"
+        "upgrade_tragetads": "Upgrade!H4:H48",
+        "level_guide":"Level!A4:O93",
+        "foodg_uide":"Food!A4:F26"
     }
 }
