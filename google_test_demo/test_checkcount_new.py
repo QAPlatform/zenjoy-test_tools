@@ -76,21 +76,24 @@ class check_timeline_count():
         global dict_name
         print "开始检查timeline数量"
         for i in dict_name:
-            print i + " check:"
-            r_sum = self.check_sum(dict_name[i]["spreadsheetId"], dict_name[i]["rangeName"])
-            result = self.scence1(dict_name[i]["spreadsheetId_scence"], dict_name[i]["rangeName_scence"])
-            # print r_sum
-            # print result
-            if len(r_sum) == len(result):
-                for j in range(0, len(r_sum)):
-                    if r_sum[j] == result[j]:
-                        pass
-                    else:
-                        print ("  the %d level is :" % (j + 1))
-                        print ("  	desgian_count%d" % r_sum[j])
-                        print("  	timeline%d" % result[j])
+            if(i == 'map1'):  # map1 是错的，影响结果
+                continue
             else:
-                print "Result:there are different counts in two sheet,design is %s,timeline is %s " % (len(r_sum), len(result))
+                print i + " check:"
+                r_sum = self.check_sum(dict_name[i]["spreadsheetId"], dict_name[i]["rangeName"])
+                result = self.scence1(dict_name[i]["spreadsheetId_scence"], dict_name[i]["rangeName_scence"])
+                # print r_sum
+                # print result
+                if len(r_sum) == len(result):
+                    for j in range(0, len(r_sum)):
+                        if r_sum[j] == result[j]:
+                            pass
+                        else:
+                            print ("  the %d level is :" % (j + 1))
+                            print ("  	desgian_count%d" % r_sum[j])
+                            print("  	timeline%d" % result[j])
+                else:
+                    print "Result:there are different counts in two sheet,design is %s,timeline is %s " % (len(r_sum), len(result))
 
 
 class check_timeline_food():
