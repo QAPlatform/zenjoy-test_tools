@@ -67,6 +67,18 @@ slot2 = {
 }
 
 slot4 = {
+    "map5": {
+        "spreadsheetId_scence": "1lr-eHwwRN1A567hRlZmuiTx7zU6QBf-AB9o1sX0DPa8",
+        "rangeName_scence": "Timeline!D2:BK34",
+        "rangeName_scence2": "Timeline!D1:BK34",
+        "spreadsheetId": "1LoeZRPrPnJWkjNtM74COVTdV3n6kpUtqo1GZ60RNl9c",
+        "rangeName": "第一稿-关卡设计!BJ5:GH64",
+        "foodName": "食物!B3:B36",
+        "foodrange": "food!E4:E40",
+        "food": "food!B4:B40",
+        "upgrade_id": "Upgrade!B4:B85",
+        "upgrade_tragetads": "Upgrade!H4:H85"
+    },
     "map4": {
         "spreadsheetId_scence": "1HO9ZA93QW-jZBlhLSgF_IKwqBbIpBa1TJURQ1vaULBU",
         "rangeName_scence": "Timeline!D2:BK33",
