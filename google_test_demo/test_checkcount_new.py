@@ -17,9 +17,18 @@ from oauth2client import client
 from oauth2client import tools
 from oauth2client.file import Storage
 
-dict_name = data.slot2
+# dict_name = data.slot2
 # dict_name = data.slot4
-# dict_name = data.slot5
+dict_name = data.slot5
+
+
+def get_Row(spreadsheetId, rangeName):
+    service = google_get_credentials.get_service()
+    result = service.spreadsheets().values().get(spreadsheetId=spreadsheetId, range=rangeName).execute()
+    google_value = result.get('values', [])
+    # for x in google_value:
+    #     level_type.append(x[0])  # foodid列数据转化格式
+    return google_value
 
 
 class check_timeline_count():
@@ -254,9 +263,96 @@ class check_timeline_upgrade():
                         pass
 
 
+class check_timeline_type():
+
+    def get_timeline_type(self, spreadsheetId, rangeName):
+        level_type = []
+        service = google_get_credentials.get_service()
+        result = service.spreadsheets().values().get(spreadsheetId=spreadsheetId, range=rangeName).execute()
+        google_value = result.get('values', [])
+        # for x in google_value:
+        #     level_type.append(x[0])  # foodid列数据转化格式
+        return google_value
+
+    def get_timeline_istime(self, spreadsheetId, rangeName):
+        istime = []
+        service = google_get_credentials.get_service()
+        result = service.spreadsheets().values().get(spreadsheetId=spreadsheetId, range=rangeName).execute()
+        google_value = result.get('values', [])
+        # print google_value
+        for x in google_value:
+            if x:
+                x = 0
+            istime.append(x)  # foodid列数据转化格式
+        return istime
+
+    def get_timeline_allfood_count(self, spreadsheetId, rangeName):
+
+        allfood_arr = []
+        service = google_get_credentials.get_service()
+        result = service.spreadsheets().values().get(spreadsheetId=spreadsheetId, range=rangeName, majorDimension="COLUMNS").execute()
+        google_value = result.get('values', [])
+        for values in google_value:
+            food_count = 0
+            for foodname in values:
+                foodname = foodname.split(",")
+                if len(foodname) > 1:  # 前两个字符没用，删了增加效率
+                    del foodname[1]
+                    del foodname[0]
+                # print food_count, len(foodname)
+                food_count += len(foodname)
+                # print food_count, foodname, len(foodname)
+            allfood_arr.append(food_count - 1)  # 去掉关卡ID
+
+        return allfood_arr
+
+    def main(self):
+        # get_foodid={}
+        print "开始检查关卡类型"
+        res = []
+        # newget_foodid = {}
+        for i in dict_name:
+            print i + " check:"
+            level_type = self.get_timeline_type(dict_name[i]["spreadsheetId_scence"], dict_name[i]["level_type"])  # upgrade表foodid列数据
+            get_istime = self.get_timeline_istime(dict_name[i]["spreadsheetId_scence"], dict_name[i]["level_istime"])
+
+            level_id = get_Row(dict_name[i]["spreadsheetId_scence"], dict_name[i]["level_guide"])  # 获取关卡id
+
+            obj_row = check_timeline_count()  # 实例化Class
+            result = obj_row.scence1(dict_name[i]["spreadsheetId_scence"], dict_name[i]["rangeName_scence"])  # timeline len
+
+            time_line_value = self.get_timeline_allfood_count(dict_name[i]["spreadsheetId_scence"], dict_name[i]["rangeName_scence2"])
+
+            # print len(result), len(level_type), len(time_line_value), len(get_istime)
+            for index, x in enumerate(level_type):  # level_type 0 是type，1是value
+                if index < len(get_istime):  # 处理时间为空的情况
+                    if(x[0] == "2" and get_istime[index] != 0):  # 2是点赞关卡
+                        if(str(x[1]) <= str(result[index])):
+                            pass
+                        else:
+                            print str(level_id[index][0]) + " level " + "timeline counts is " + str(result[index]) + " level sheet is " + str(x[1])
+
+                    elif((x[0] == "1" and get_istime[index] != 0)):  # 1是盘子关卡
+                        if(str(x[1]) <= str(time_line_value[index])):
+                            pass
+                        else:
+                            print str(level_id[index][0]) + " level " + "timeline counts is " + str(time_line_value[index]) + " level sheet is " + str(x[1])
+                else:
+                    if(x[0] == "2"):  # 2是点赞关卡
+                        if(str(x[1]) <= str(result[index])):
+                            pass
+                        else:
+                            print str(level_id[index][0]) + " level " + "timeline counts is " + str(result[index]) + " level sheet is " + str(x[1])
+                    elif (x[0] == "1"):  # 1是盘子关卡
+                        if(str(x[1]) <= str(time_line_value[index])):
+                            pass
+                        else:
+                            print str(level_id[index][0]) + " level " + "timeline counts is " + str(time_line_value[index]) + " level sheet is " + str(x[1])
+
+
 class check_guide():
 
-    def get_guidelevel(self, spreadsheetId, rangeName,col_level):
+    def get_guidelevel(self, spreadsheetId, rangeName, col_level):
         guidelevel = []
         guidefood = []
         food = []
@@ -266,20 +362,20 @@ class check_guide():
         guide_levelvalue = result.get('values', [])
 
         for x in guide_levelvalue:
-            if len(x) == int(col_level)+1:
+            if len(x) == int(col_level) + 1:
                 dic[x[int(col_level)]] = x[0]
         # print "食物id：关卡id"
         # print dic
         return dic
 
-    def get_guidefood(self, spreadsheetId, rangeName,col_food):
+    def get_guidefood(self, spreadsheetId, rangeName, col_food):
         dic1 = {}
         service = google_get_credentials.get_service()
         result = service.spreadsheets().values().get(spreadsheetId=spreadsheetId, range=rangeName).execute()
         guide_foodvalue = result.get('values', [])
 
         for y in guide_foodvalue:
-            if len(y) == int(col_food)+1:
+            if len(y) == int(col_food) + 1:
                 dic1[y[0]] = y[int(col_food)]
         # print "食物id：引导id"
         # print dic1
@@ -291,11 +387,10 @@ class check_guide():
 
         for i in dict_name:
             print i + " check:"
-            get_levelguide = self.get_guidelevel(dict_name[i]["spreadsheetId_scence"], dict_name[i]["level_guide"],dict_name[i]["col_level"])
-            get_foodguide = self.get_guidefood(dict_name[i]["spreadsheetId_scence"], dict_name[i]["foodg_uide"],dict_name[i]["col_food"])
+            get_levelguide = self.get_guidelevel(dict_name[i]["spreadsheetId_scence"], dict_name[i]["level_guide"], dict_name[i]["col_level"])
+            get_foodguide = self.get_guidefood(dict_name[i]["spreadsheetId_scence"], dict_name[i]["foodg_uide"], dict_name[i]["col_food"])
 
             if len(get_levelguide) == len(get_foodguide):
-                print "两个表中的食物id一致"
                 for x in get_levelguide:
                     if get_foodguide.has_key(x):
                         pass
@@ -303,7 +398,7 @@ class check_guide():
                         print get_levelguide[x] + " have not in food sheet"
             else:
                 if len(get_levelguide) > len(get_foodguide):
-                   for x in get_levelguide:
+                    for x in get_levelguide:
                         if get_foodguide.has_key(x):
                             pass
                         else:
@@ -315,7 +410,6 @@ class check_guide():
                         else:
                             print x + " have not in level sheet"
 
-
             # if get_levelguide.=get_foodguide[0]:
             #     print "新手引导检查通过"
             # else:
@@ -326,7 +420,7 @@ if __name__ == '__main__':
 
     check_timeline_food().main()
     check_timeline_food().check_foodrange()
-    # check_timeline_food().get_name_range("1zsRwqwAcM22ilYvdyNic-ynlXbD4oZm0RmmPCLO1n-Q")
-    check_timeline_count().main()
+    check_timeline_type().main()
     check_timeline_upgrade().main()
     check_guide().main()
+    check_timeline_count.mian()
