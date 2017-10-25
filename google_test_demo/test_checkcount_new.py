@@ -327,24 +327,24 @@ class check_timeline_type():
             for index, x in enumerate(level_type):  # level_type 0 是type，1是value
                 if index < len(get_istime):  # 处理时间为空的情况
                     if(x[0] == "2" and get_istime[index] != 0):  # 2是点赞关卡
-                        if(str(x[1]) <= str(result[index])):
+                        if (int(x[1])) <= int(result[index]):
                             pass
                         else:
                             print str(level_id[index][0]) + " level " + "timeline counts is " + str(result[index]) + " level sheet is " + str(x[1])
 
                     elif((x[0] == "1" and get_istime[index] != 0)):  # 1是盘子关卡
-                        if(str(x[1]) <= str(time_line_value[index])):
+                        if(int(x[1]) <= int(time_line_value[index])):
                             pass
                         else:
                             print str(level_id[index][0]) + " level " + "timeline counts is " + str(time_line_value[index]) + " level sheet is " + str(x[1])
                 else:
                     if(x[0] == "2"):  # 2是点赞关卡
-                        if(str(x[1]) <= str(result[index])):
+                        if(int(x[1]) <= int(result[index])):
                             pass
                         else:
                             print str(level_id[index][0]) + " level " + "timeline counts is " + str(result[index]) + " level sheet is " + str(x[1])
                     elif (x[0] == "1"):  # 1是盘子关卡
-                        if(str(x[1]) <= str(time_line_value[index])):
+                        if(int(x[1]) <= int(time_line_value[index])):
                             pass
                         else:
                             print str(level_id[index][0]) + " level " + "timeline counts is " + str(time_line_value[index]) + " level sheet is " + str(x[1])
@@ -418,9 +418,9 @@ class check_guide():
 
 if __name__ == '__main__':
 
-    check_timeline_food().main()
-    check_timeline_food().check_foodrange()
+    # check_timeline_food().main()
+    # check_timeline_food().check_foodrange()
     check_timeline_type().main()
-    check_timeline_upgrade().main()
-    check_guide().main()
-    check_timeline_count.mian()
+    # check_timeline_upgrade().main()
+    # check_guide().main()
+    # check_timeline_count.mian()
