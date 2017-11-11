@@ -31,6 +31,15 @@ def get_Row(spreadsheetId, rangeName):
     return google_value
 
 
+def get_Col(spreadsheetId, rangeName):
+    service = google_get_credentials.get_service()
+    result = service.spreadsheets().values().get(spreadsheetId=spreadsheetId, range=rangeName, majorDimension="COLUMNS").execute()
+    google_value = result.get('values', [])
+    # for x in google_value:
+    #     level_type.append(x[0])  # foodid列数据转化格式
+    return google_value
+
+
 class check_timeline_count():
 
     def scence1(self, spreadsheetId, rangeName):
@@ -187,10 +196,13 @@ class check_timeline_food():
         for i in dict_name:
             foodrange_arr = []
             print i + "check结果："
-            time_line_value = self.get_timeline_name(dict_name[i]["spreadsheetId_scence"], dict_name[i]["rangeName_scence2"])
+            time_line_value = get_Col(dict_name[i]["spreadsheetId_scence"], dict_name[i]["rangeName_scence2"])
             food_name_range = self.get_food_name_map(dict_name[i]["spreadsheetId_scence"], dict_name[i]["foodrange"])
             food = self.get_food_name_map(dict_name[i]["spreadsheetId_scence"], dict_name[i]["food"])
-            time_line_value_col = map(list, zip(*time_line_value))
+            food_type = get_Row(dict_name[i]["spreadsheetId_scence"], dict_name[i]["foodtype"])
+            #time_line_value_col = map(list, zip(*time_line_value))
+
+            # print len(time_line_value)
 
             for i in food_name_range:  # 获取食物范围
                 food_range = int(i.split(',')[0])
@@ -201,25 +213,41 @@ class check_timeline_food():
     #           print "*************"
 #            print len(foodrange_arr)
 #            print len(food)
-            for food_value in time_line_value_col:  # 按列取整张表
+            for food_value in time_line_value:  # 按列取整张表
                 food_count = []
-                check_count = 0
                 # for food in food_name:
-
                 for value_f in food_value:  # 循环每列
                     for index, range_food in enumerate(foodrange_arr):
-                        # print value_f[0]
-                        if(int(food_value[0])) < int(range_food):  # 如果表中的关卡数小于食物的起始等级
-                            food_name = value_f.split(",")
-                            if len(food_name) > 1:  # 前两个字符没用，删了增加效率
-                                del food_name[1]
-                                del food_name[0]
+                        food_name = value_f.split(",")
+                        if len(food_name) > 1:  # 前两个字符没用，删了增加效率
+                            del food_name[1]
+                            del food_name[0]
+
+                            if(int(food_value[0])) < int(range_food):  # 如果表中的关卡数小于食物的起始等级
                                 for line_name in food_name:
                                     if(line_name != ""):
                                         if type(line_name) != type(1):
                                             line_name = line_name.replace("(", "").replace(")", "")  # line_name为每个食物名称
                                             if (line_name == food[index]):
                                                 print food[index] + "不应该出现在" + food_value[0], "起始关卡应该在" + str(range_food)
+
+                for index, range_food in enumerate(foodrange_arr):  # 检查食物解锁当列，timelines中是否有该食物
+                    check_count = 0
+                    if(int(food_value[0])) == int(range_food):
+                        if("e" in food_type[index][0] or "f" in food_type[index][0]):  # e和f 是在timeline 中出现的
+                            for value_f in food_value:
+                                food_name = value_f.split(",")
+                                if len(food_name) > 1:  # 前两个字符没用，删了增加效率
+                                    del food_name[1]
+                                    del food_name[0]
+                                    for line_name in food_name:
+                                        if type(line_name) != type(1):
+                                            line_name = line_name.replace("(", "").replace(")", "")
+                                            if (line_name == food[index]):
+                                                check_count += 1
+                            # print "check_count" + str(check_count)
+                            if(check_count < 1):
+                                print str(food[index]) + "应该出现在" + str(range_food)
 
 
 class check_timeline_upgrade():
@@ -418,9 +446,9 @@ class check_guide():
 
 if __name__ == '__main__':
 
-    # check_timeline_food().main()
-    # check_timeline_food().check_foodrange()
+    check_timeline_food().main()
+    check_timeline_food().check_foodrange()
     check_timeline_type().main()
-    # check_timeline_upgrade().main()
-    # check_guide().main()
-    # check_timeline_count.mian()
+    check_timeline_upgrade().main()
+    check_guide().main()
+    check_timeline_count.main()
