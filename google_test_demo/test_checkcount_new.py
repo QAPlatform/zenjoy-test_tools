@@ -446,9 +446,9 @@ class check_guide():
 
 if __name__ == '__main__':
 
-    # check_timeline_food().main()
-    # check_timeline_food().check_foodrange()
-    # check_timeline_type().main()
-    # check_timeline_upgrade().main()
-    # check_guide().main()
+    check_timeline_food().main()
+    check_timeline_food().check_foodrange()
+    check_timeline_type().main()
+    check_timeline_upgrade().main()
+    check_guide().main()
     check_timeline_count().main()
