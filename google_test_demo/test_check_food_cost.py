@@ -54,6 +54,11 @@ slot5 = {
         "spreadsheet_id": "1jndZFK4gXLrwbl3AnOgjyXqKBJW2NHxk8gG_318y5kQ",
         "for_range": "45",
         "append_range": "48"
+    },
+    "slot5map4": {
+        "spreadsheet_id": "1rA3RbqivMiHSsNw1rGyGW4zgTDBlcIIdNlSKAWkLdyA",
+        "for_range": "45",
+        "append_range": "48"  # excel表中的
     }
 }
 # dict_value = {"id": "1", "level": "1", "cash": "1", "diamond": "1", "exp": "1"}
@@ -63,9 +68,9 @@ def check_upgrade():
     global slot5
 
     dict_value = {}
-    spreadsheet_id = slot5["slot5map1"]["spreadsheet_id"]
-    for_range = int(slot5["slot5map1"]["for_range"])
-    append_range = slot5["slot5map1"]["append_range"]
+    spreadsheet_id = slot5["slot5map4"]["spreadsheet_id"]
+    for_range = int(slot5["slot5map4"]["for_range"])
+    append_range = slot5["slot5map4"]["append_range"]
 
     for i in range(1, for_range):
         dict_value[i] = {}
@@ -99,7 +104,7 @@ def check_upgrade():
 
 def read_test_file():
     test_info = []
-    f = open("slot5map1.log")
+    f = open("map4food.txt")
     for line in f.readlines():
         if 'UpgradeMan.js' and "testinfo:" in line:
             line = line.split("testinfo: ")
