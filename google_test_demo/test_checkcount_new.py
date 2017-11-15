@@ -18,7 +18,7 @@ from oauth2client import tools
 from oauth2client.file import Storage
 
 # dict_name = data.slot2
-# dict_name = data.slot4
+#dict_name = data.slot4
 dict_name = data.slot5
 
 
@@ -94,7 +94,7 @@ class check_timeline_count():
         global dict_name
         print "开始检查timeline数量"
         for i in dict_name:
-            if(i == 'map1'):  # map1 是错的，影响结果
+            if(i == 'map1') and dict_name != data.slot5:  # map1 是错的，影响结果
                 continue
             else:
                 print i + " check:"
@@ -451,4 +451,4 @@ if __name__ == '__main__':
     check_timeline_type().main()
     check_timeline_upgrade().main()
     check_guide().main()
-    check_timeline_count.main()
+    check_timeline_count().main()
