@@ -51,9 +51,9 @@ slot4 = {
 
 slot5 = {
     "slot5map1": {
-        "spreadsheet_id": "1jndZFK4gXLrwbl3AnOgjyXqKBJW2NHxk8gG_318y5kQ",
-        "for_range": "45",
-        "append_range": "48"
+        "spreadsheet_id": "10ZFTyfneiFNuH6lpZ3BpcWkkzOht3xiUg2CmMKndWVY",#改这个，对应map的表
+        "for_range": "36",#upgrade表行数-3
+        "append_range": "39"#upgrade表行数
     }
 }
 # dict_value = {"id": "1", "level": "1", "cash": "1", "diamond": "1", "exp": "1"}
@@ -99,7 +99,7 @@ def check_upgrade():
 
 def read_test_file():
     test_info = []
-    f = open("slot5map1.log")
+    f = open("slot5map1.log")#全部升级一遍后取出log放到该文件目录下
     for line in f.readlines():
         if 'UpgradeMan.js' and "testinfo:" in line:
             line = line.split("testinfo: ")

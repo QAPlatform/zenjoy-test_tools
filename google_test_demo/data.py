@@ -246,5 +246,24 @@ slot5 = {
         "foodg_uide": "Food!A4:F20",
         "col_food": "5",
         "col_level": "16"
+    },
+    "map5": {
+        "spreadsheetId_scence": "10ZFTyfneiFNuH6lpZ3BpcWkkzOht3xiUg2CmMKndWVY",
+        "rangeName_scence": "Timeline!D2:DS27",
+        "rangeName_scence2": "Timeline!D1:DS27",
+        "spreadsheetId": "1h37XwQRen3RLYRjFvlJ8c8ZsNa4UHyKX-86TWzI6ZJg",
+        "rangeName": "2-1关卡!BJ4:FF123",
+        "foodName": "2-1厨房!B3:B17",
+        "foodrange": "food!E4:E22",
+        "food": "food!B4:B22",
+        "foodtype": "food!D4:D22",
+        "upgrade_id": "Upgrade!B4:B39",
+        "upgrade_tragetads": "Upgrade!H4:H39",
+        "level_type": "Level!H4:I123",
+        "level_istime": "Level!J4:J123",
+        "level_guide": "Level!A4:Q123",
+        "foodg_uide": "Food!A4:F22",
+        "col_food": "5",
+        "col_level": "16"
     }
 }
