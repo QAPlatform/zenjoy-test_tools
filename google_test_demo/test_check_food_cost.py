@@ -51,9 +51,9 @@ slot4 = {
 
 slot5 = {
     "slot5map1": {
-        "spreadsheet_id": "10ZFTyfneiFNuH6lpZ3BpcWkkzOht3xiUg2CmMKndWVY",#改这个，对应map的表
-        "for_range": "36",#upgrade表行数-3
-        "append_range": "39"#upgrade表行数
+        "spreadsheet_id": "1ntiReFa7JM2iytT0ZBDMtV5zhzmar-c4bGx4QH3UQHo",#改这个，对应map的表
+        "for_range": "42",#upgrade表行数-3
+        "append_range": "45"#upgrade表行数
     }
 }
 # dict_value = {"id": "1", "level": "1", "cash": "1", "diamond": "1", "exp": "1"}
