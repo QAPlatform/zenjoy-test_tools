@@ -172,10 +172,10 @@ slot4 = {
 
 slot5 = {
     "map1": {
-        "spreadsheetId_scence": "1ylm-19mo3kgYHXzA1YVpS3WUjDg4QfMaWovXKODkC3I",
+        "spreadsheetId_scence": "1n9AXYsYl6p7aEKAsoAGob3KB2Pe4GSw7a4JW8FHqPFY",
         "rangeName_scence": "Timeline!D2:BK34",
         "rangeName_scence2": "Timeline!D1:BK34",
-        "spreadsheetId": "17xp80h0EHBr0R2G7TpTK8IvsMLLABUza8jsw8CLvdyA",
+        "spreadsheetId": "1RXP105cQOOJ8aIFRyg2r0H4EPWHAGILCSZjhir9S87k",
         "rangeName": "1-1关卡!BA4:DM63",
         "foodName": "1-1厨房!B3:B13",
         "foodrange": "food!E4:E25",
@@ -191,10 +191,10 @@ slot5 = {
         "col_level": "14"
     },
     "map2": {
-        "spreadsheetId_scence": "1jndZFK4gXLrwbl3AnOgjyXqKBJW2NHxk8gG_318y5kQ",
+        "spreadsheetId_scence": "1xlQhdpumr0NIVBqJwbTne-KRJqioa1PZbDCdKcRfCCE",
         "rangeName_scence": "Timeline!D2:CO34",
         "rangeName_scence2": "Timeline!D1:CO34",
-        "spreadsheetId": "17xp80h0EHBr0R2G7TpTK8IvsMLLABUza8jsw8CLvdyA",
+        "spreadsheetId": "1RXP105cQOOJ8aIFRyg2r0H4EPWHAGILCSZjhir9S87k",
         "rangeName": "1-2关卡!BN4:ET93",
         "foodName": "1-2厨房!B3:B17",
         "foodrange": "food!E4:E26",
@@ -210,10 +210,10 @@ slot5 = {
         "col_level": "14"
     },
     "map3": {
-        "spreadsheetId_scence": "1PBYIqfHfQ5Q5QDemBThoaXZ7LYSzazLiw27HMvMxAY0",
+        "spreadsheetId_scence": "1MXwj8MW-HOWHSAIRxocDnxi8Met5NZLSR35dFBmMFps",
         "rangeName_scence": "Timeline!D2:DS34",
         "rangeName_scence2": "Timeline!D1:DS34",
-        "spreadsheetId": "17xp80h0EHBr0R2G7TpTK8IvsMLLABUza8jsw8CLvdyA",
+        "spreadsheetId": "1RXP105cQOOJ8aIFRyg2r0H4EPWHAGILCSZjhir9S87k",
         "rangeName": "1-3关卡!BP4:EZ123",
         "foodName": "1-3厨房!B3:B17",
         "foodrange": "food!E4:E23",
@@ -229,10 +229,10 @@ slot5 = {
         "col_level": "16"
     },
     "map4": {
-        "spreadsheetId_scence": "1rA3RbqivMiHSsNw1rGyGW4zgTDBlcIIdNlSKAWkLdyA",
+        "spreadsheetId_scence": "1LN6u4NGewf-BYSFVZaDCS46ugI6vncE-ip3zbyWQ5Ns",
         "rangeName_scence": "Timeline!D2:DS28",
         "rangeName_scence2": "Timeline!D1:DS28",
-        "spreadsheetId": "17xp80h0EHBr0R2G7TpTK8IvsMLLABUza8jsw8CLvdyA",
+        "spreadsheetId": "1RXP105cQOOJ8aIFRyg2r0H4EPWHAGILCSZjhir9S87k",
         "rangeName": "1-4关卡!BN4:FN123",
         "foodName": "1-4厨房!B3:B14",
         "foodrange": "food!E4:E20",
@@ -248,10 +248,10 @@ slot5 = {
         "col_level": "16"
     },
     "map5": {
-        "spreadsheetId_scence": "10ZFTyfneiFNuH6lpZ3BpcWkkzOht3xiUg2CmMKndWVY",
+        "spreadsheetId_scence": "1dBB7ZXsylRv0FZ5hPgq8h03-O9Nlr8P8dcGxgUHCxm0",
         "rangeName_scence": "Timeline!D2:DS27",
         "rangeName_scence2": "Timeline!D1:DS27",
-        "spreadsheetId": "1h37XwQRen3RLYRjFvlJ8c8ZsNa4UHyKX-86TWzI6ZJg",
+        "spreadsheetId": "1BKDZltchBPfeUvzof6OpepKusE3Uwmbvg-b24gJfNqs",
         "rangeName": "2-1关卡!BJ4:FF123",
         "foodName": "2-1厨房!B3:B17",
         "foodrange": "food!E4:E22",
@@ -267,10 +267,10 @@ slot5 = {
         "col_level": "16"
     },
     "map6": {
-        "spreadsheetId_scence": "1ntiReFa7JM2iytT0ZBDMtV5zhzmar-c4bGx4QH3UQHo",#map表
+        "spreadsheetId_scence": "167uE0PaDtYp-BhuWR8P-IXW9Sm2wkQlYVPTfzLE-gvo",#map表
         "rangeName_scence": "Timeline!D2:DS23",
         "rangeName_scence2": "Timeline!D1:DS23",
-        "spreadsheetId": "1h37XwQRen3RLYRjFvlJ8c8ZsNa4UHyKX-86TWzI6ZJg",#设计表
+        "spreadsheetId": "1BKDZltchBPfeUvzof6OpepKusE3Uwmbvg-b24gJfNqs",#设计表
         "rangeName": "2-2关卡!BN4:ET123",#第1关菜价开始
         "foodName": "2-2厨房!B3:B18",
         "foodrange": "food!E4:E23",
@@ -282,6 +282,25 @@ slot5 = {
         "level_istime": "Level!J4:J123",
         "level_guide": "Level!A4:R123",
         "foodg_uide": "Food!A4:F23",
+        "col_food": "5",
+        "col_level": "17"
+    },
+    "map7": {
+        "spreadsheetId_scence": "1qoFIglHU5gMT2z0puEPlRAubuGl_sxI1cqBV2vbguLQ",#map表
+        "rangeName_scence": "Timeline!D2:DS23",
+        "rangeName_scence2": "Timeline!D1:DS23",
+        "spreadsheetId": "1BKDZltchBPfeUvzof6OpepKusE3Uwmbvg-b24gJfNqs",#设计表
+        "rangeName": "2-2关卡!BN4:ET123",#第1关菜价开始
+        "foodName": "2-2厨房!B3:B18",
+        "foodrange": "food!E4:E33",
+        "food": "food!B4:B33",
+        "foodtype": "food!D4:D33",
+        "upgrade_id": "Upgrade!B4:B45",
+        "upgrade_tragetads": "Upgrade!H4:H45",
+        "level_type": "Level!H4:I123",
+        "level_istime": "Level!J4:J123",
+        "level_guide": "Level!A4:R123",
+        "foodg_uide": "Food!A4:F33",
         "col_food": "5",
         "col_level": "17"
     }
