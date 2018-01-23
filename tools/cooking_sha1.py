@@ -10,9 +10,9 @@ secret_cooking3 = "foobar"  # 测试服
 secret_cooking2 = ""  # 测试服
 
 
-def cooking2_sha1(strings):
+def cooking_sha1(strings, secret=secret_cooking2):
 
-    strings = (strings + secret_cooking2)
+    strings = (strings + secret)
     sha1 = hashlib.sha1()
     sha1.update(strings.encode('utf-8'))
     res = sha1.hexdigest()
