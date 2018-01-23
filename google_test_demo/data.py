@@ -278,8 +278,8 @@ slot5 = {
         "foodtype": "food!D4:D23",
         "upgrade_id": "Upgrade!B4:B45",
         "upgrade_tragetads": "Upgrade!H4:H45",
-        "level_type": "Level!H4:I123",
-        "level_istime": "Level!J4:J123",
+        "level_type": "Level!I4:J123",
+        "level_istime": "Level!k4:k123",
         "level_guide": "Level!A4:R123",
         "foodg_uide": "Food!A4:F23",
         "col_food": "5",
@@ -287,18 +287,18 @@ slot5 = {
     },
     "map7": {
         "spreadsheetId_scence": "1qoFIglHU5gMT2z0puEPlRAubuGl_sxI1cqBV2vbguLQ",#map表
-        "rangeName_scence": "Timeline!D2:DS23",
-        "rangeName_scence2": "Timeline!D1:DS23",
+        "rangeName_scence": "Timeline!D2:DS25",
+        "rangeName_scence2": "Timeline!D1:DS25",
         "spreadsheetId": "1BKDZltchBPfeUvzof6OpepKusE3Uwmbvg-b24gJfNqs",#设计表
-        "rangeName": "2-2关卡!BN4:ET123",#第1关菜价开始
-        "foodName": "2-2厨房!B3:B18",
+        "rangeName": "2-3关卡!BZ4:FF123",#第1关菜价开始
+        "foodName": "2-3厨房!B3:B24",
         "foodrange": "food!E4:E33",
         "food": "food!B4:B33",
         "foodtype": "food!D4:D33",
         "upgrade_id": "Upgrade!B4:B45",
         "upgrade_tragetads": "Upgrade!H4:H45",
-        "level_type": "Level!H4:I123",
-        "level_istime": "Level!J4:J123",
+        "level_type": "Level!i4:j123",
+        "level_istime": "Level!k4:k123",
         "level_guide": "Level!A4:R123",
         "foodg_uide": "Food!A4:F33",
         "col_food": "5",

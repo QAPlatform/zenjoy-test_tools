@@ -351,9 +351,10 @@ class check_timeline_type():
 
             time_line_value = self.get_timeline_allfood_count(dict_name[i]["spreadsheetId_scence"], dict_name[i]["rangeName_scence2"])
 
-            # print len(result), len(level_type), len(time_line_value), len(get_istime)
+            #print len(result), len(level_type), len(time_line_value), len(get_istime)
             for index, x in enumerate(level_type):  # level_type 0 是type，1是value
                 if index < len(get_istime):  # 处理时间为空的情况
+                    #print x[0],x[1]
                     if(x[0] == "2" and get_istime[index] != 0):  # 2是点赞关卡
                         if (int(x[1])) <= int(result[index]):
                             pass
@@ -373,6 +374,7 @@ class check_timeline_type():
                             print str(level_id[index][0]) + " level " + "timeline counts is " + str(result[index]) + " level sheet is " + str(x[1])
                     elif (x[0] == "1"):  # 1是盘子关卡
                         if(int(x[1]) <= int(time_line_value[index])):
+                            #print str(time_line_value[index]),x[1]
                             pass
                         else:
                             print str(level_id[index][0]) + " level " + "timeline counts is " + str(time_line_value[index]) + " level sheet is " + str(x[1])
