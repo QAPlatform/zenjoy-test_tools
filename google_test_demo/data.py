@@ -290,7 +290,7 @@ slot5 = {
         "rangeName_scence": "Timeline!D2:DS25",
         "rangeName_scence2": "Timeline!D1:DS25",
         "spreadsheetId": "1BKDZltchBPfeUvzof6OpepKusE3Uwmbvg-b24gJfNqs",#设计表
-        "rangeName": "2-3关卡!BZ4:FF123",#第1关菜价开始
+        "rangeName": "2-3关卡!BZ4:FZ123",#第1关菜价开始
         "foodName": "2-3厨房!B3:B24",
         "foodrange": "food!E4:E33",
         "food": "food!B4:B33",
